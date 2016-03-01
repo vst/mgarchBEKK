@@ -16,7 +16,7 @@ Suggests:
     testthat,
     devtools,
     roxygen2
-License: GPL-3 + file LICENSE
+License: GPL-3
 LazyData: true
 URL: https://github.com/vst/mgarchBEKK/
 RoxygenNote: 5.0.1
