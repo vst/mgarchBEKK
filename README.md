@@ -1,17 +1,22 @@
-# mgarchBEKK - R Package for MGARCH (BEKK and mGJR) Processes
+# mgarchBEKK
 
-> **Please note** that this package is being revised after a long time. The
-> original codebase is currently available on
+*mgarchBEKK* is an R Package designed to simulate, estimate, predict
+and diagnose MGARCH processes, in particular of *BEKK* and *mGJR*
+(bivariate asymmetric GARCH) specifications.
+
+> **Please note** that this package is being revised after a long
+> time. The original codebase is currently available on
 > https://github.com/vst/mgarch. The objective is to standardize the
 > simulation, estimation, prediction/forecasting and diagnostics
 > processes and optimize for speed in the long run. Therefore, please
 > expect significant API changes, ie. function names, parameters and
 > their meaning may change along the way.
+>
+> This package is not on [CRAN](https://cran.r-project.org/) yet.
+> Therefore, you need to manually install it.
 
 > *TODO: Provide a complete README file.*
 
-This package is not on [CRAN](https://cran.r-project.org/)
-yet. Therefore, you need to manually install it.
 
 ## Usage
 

@@ -2,11 +2,12 @@ Package: mgarchBEKK
 Title: Simulating, Estimating and Diagnosing MGARCH (BEKK and mGJR) Processes
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Vehbi Sinan", "Tunalioglu", email="vst@vsthost.com", role=c("cre", "aut")),
     person("Harald", "Schmidbauer", email="harald@hs-stat.com", role=c("aut")),
-    person("Angi", "Roesch", email="angi.r@t-online.de", role=c("aut")))
-Description: This package contains procedures to simulate, estimate and diagnose
-    MGARCH processes of BEKK and multivariate GJR specification.
+    person("Angi", "Roesch", email="angi.r@t-online.de", role=c("aut")),
+    person("Vehbi Sinan", "Tunalioglu", email="vst@vsthost.com", role=c("cre", "aut")))
+Description: Procedures to simulate, estimate and diagnose MGARCH
+    processes of BEKK and multivariate GJR (bivariate asymmetric GARCH
+    model) specification.
 Depends:
     R (>= 3.2.3),
     tseries,
