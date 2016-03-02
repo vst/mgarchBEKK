@@ -10,6 +10,7 @@
 ##' ## Simulate series:
 ##' simulated = simulateBEKK(2, 1000, c(1,1))
 ##'
+##' @import stats
 ##' @export
 simulateBEKK <- function(series.count, T, order  = c(1, 1), params = NULL) {
     count.triangular <- function(dimension){
@@ -285,6 +286,7 @@ simulateBEKK <- function(series.count, T, order  = c(1, 1), params = NULL) {
 ##'
 ##' @import mvtnorm
 ##' @import tseries
+##' @import stats
 ##' @useDynLib mgarchBEKK
 ##' @export
 BEKK <- function(eps, order  = c(1,1), params = NULL, fixed  = NULL, method = "BFGS", verbose = F) {
@@ -768,6 +770,9 @@ BEKK <- function(eps, order  = c(1,1), params = NULL, fixed  = NULL, method = "B
 ##' diagnoseBEKK(estimated)
 ##' }
 ##'
+##' @import stats
+##' @import graphics
+##' @import grDevices
 ##' @export
 diagnoseBEKK <- function(estimation)
 {
