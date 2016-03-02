@@ -1,0 +1,11 @@
+VERS: 2016-03-02 ------- release/0.0.1
+
+    * 2016-03-02 0db57f4 [release] Fixed `no visible global function definition` on R-devel (vst@vsthost.com)
+    * 2016-03-02 01f7022 [release] Fixed the email address of Angi (vst@vsthost.com)
+    * 2016-03-01 97505b5 [release] Added CRAN comments (vst@vsthost.com)
+    * 2016-03-01 375f70c [release] LICENSE renamed to COPYING (vst@vsthost.com)
+    * 2016-03-01 9a798b1 [release] Updated change log (vst@vsthost.com)
+    * 2016-03-01 25aa000 [release] Version bumped to 0.0.1 (vst@vsthost.com)
+    * 2016-03-01 6ffa6aa [chore] README and DESCRIPTION updated before release (vst@vsthost.com)
+    * 2016-03-01 cee7f4c [chore] Initial code commit (vst@vsthost.com)
+    * 2016-03-01 b728eeb Initial commit (vst@vsthost.com)
