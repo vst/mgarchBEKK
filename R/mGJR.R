@@ -8,6 +8,7 @@
 ##' @param method The method that will be used by the \code{optim} function.
 ##' @return Estimation results packaged as \code{mGJR} class instance.
 ##'
+##' @import stats
 ##' @useDynLib mgarchBEKK
 ##' @export
 mGJR <- function(eps1, eps2, order=c(1,1,1), params=NULL, fixed=NULL, method="BFGS") {

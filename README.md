@@ -11,12 +11,28 @@ and diagnose MGARCH processes, in particular of *BEKK* and *mGJR*
 > processes and optimize for speed in the long run. Therefore, please
 > expect significant API changes, ie. function names, parameters and
 > their meaning may change along the way.
->
-> This package is not on [CRAN](https://cran.r-project.org/) yet.
-> Therefore, you need to manually install it.
 
 > *TODO: Provide a complete README file.*
 
+## Installation
+
+The package is on CRAN:
+
+    install.packages("mgarchBEKK")
+
+However, you can still install the package straight from out GitHub
+repository. The easiest way is to use devtools:
+
+    install.packages("devtools")
+
+For the `master` branch which is usually the same as the
+CRAN version:
+
+    install_github("vst/mgarchBEKK")
+
+For the `develop` branch which is the latest development version:
+
+    install_github("vst/mgarchBEKK", ref="develop")
 
 ## Usage
 
