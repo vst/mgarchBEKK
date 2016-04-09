@@ -2,7 +2,7 @@
 % Please edit documentation in R/BEKK.R
 \name{simulateBEKK}
 \alias{simulateBEKK}
-\title{Provides a procedure to simulate BEKK processes.}
+\title{Simulate BEKK processes}
 \usage{
 simulateBEKK(series.count, T, order = c(1, 1), params = NULL)
 }
@@ -11,19 +11,53 @@ simulateBEKK(series.count, T, order = c(1, 1), params = NULL)
 
 \item{T}{The length of series to be simulated.}
 
-\item{order}{BEKK(p, q) order}
+\item{order}{BEKK(p, q) order. An integer vector of length 2
+giving the orders of the model to fit. \code{order[2]} refers
+to the ARCH order and \code{order[1]} to the GARCH order.}
 
-\item{params}{Initial parameters for simulation.}
+\item{params}{A vector containing a sequence of parameter
+matrices' values.}
 }
 \value{
-Simulated series and auxiliary information packaged as a \code{simulateBEKK} class instance.
+Simulated series and auxiliary information packaged as a
+    \code{simulateBEKK} class instance. Values are:
+    \describe{
+        \item{length}{length of the series simulated}
+        \item{order}{order of the BEKK model}
+        \item{params}{a vector of the selected parameters}
+        \item{true.params}{list of parameters in matrix form}
+        \item{eigenvalues}{computed eigenvalues for sum of Kronecker products}
+        \item{uncond.cov.matrix}{unconditional covariance matrix of the process}
+        \item{white.noise}{white noise series used for simulating the process}
+        \item{eps}{a list of simulated series}
+        \item{cor}{list of series of conditional correlations}
+        \item{sd}{list of series of conditional standard deviations}
+    }
 }
 \description{
 Provides a procedure to simulate BEKK processes.
+}
+\details{
+\code{simulateBEKK} simulates an N dimensional \code{BEKK(p,q)}
+model for the given length, order list, and initial parameter list
+where \code{N} is also specified by the user.
 }
 \examples{
 ## Simulate series:
 simulated = simulateBEKK(2, 1000, c(1,1))
 
+}
+\references{
+{
+  Bauwens L., S. Laurent, J.V.K. Rombouts, Multivariate GARCH models: A survey, April, 2003
+
+  Bollerslev T., Modelling the coherence in short-run nominal exchange rate: A multivariate generalized ARCH approach, Review of Economics and Statistics, 498--505, 72, 1990
+
+  Engle R.F., K.F. Kroner, Multivariate simultaneous generalized ARCH, Econometric Theory, 122-150, 1995
+
+  Engle R.F., Dynamic conditional correlation: A new simple class of multivariate GARCH models, Journal of Business and Economic Statistics, 339--350, 20, 2002
+
+  Tse Y.K., A.K.C. Tsui, A multivariate generalized autoregressive conditional heteroscedasticity model with time-varying correlations, Journal of Business and Economic Statistics, 351-362, 20, 2002
+}
 }
 
