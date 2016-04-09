@@ -2,7 +2,7 @@
 % Please edit documentation in R/BEKK.R
 \name{diagnoseBEKK}
 \alias{diagnoseBEKK}
-\title{Provides diagnostics for a BEKK process estimation.}
+\title{Diagnose BEKK process estimation}
 \usage{
 diagnoseBEKK(estimation)
 }
@@ -10,9 +10,12 @@ diagnoseBEKK(estimation)
 \item{estimation}{The return value of the \code{mvBEKK.est} function}
 }
 \value{
-Nothing
+Nothing special
 }
 \description{
+Provides diagnostics for a BEKK process estimation.
+}
+\details{
 This procedure provides console output and browsable plots for a
 given BEKK process estimation. Therefore, it is meant to be
 interactive as the user needs to proceed by pressing \code{c} on

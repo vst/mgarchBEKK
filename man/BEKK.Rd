@@ -2,7 +2,7 @@
 % Please edit documentation in R/BEKK.R
 \name{BEKK}
 \alias{BEKK}
-\title{Provide the MGARCH-BEKK estimation procedure.}
+\title{Estimate MGARCH-BEKK processes}
 \usage{
 BEKK(eps, order = c(1, 1), params = NULL, fixed = NULL, method = "BFGS",
   verbose = F)
@@ -10,21 +10,48 @@ BEKK(eps, order = c(1, 1), params = NULL, fixed = NULL, method = "BFGS",
 \arguments{
 \item{eps}{Data frame holding time series.}
 
-\item{order}{BEKK(p, q) order}
+\item{order}{BEKK(p, q) order. An integer vector of length 2
+giving the orders of the model to be fitted. \code{order[2]}
+refers to the ARCH order and \code{order[1]} to the GARCH
+order.}
 
 \item{params}{Initial parameters for the \code{optim} function.}
 
 \item{fixed}{Vector of parameters to be fixed.}
 
-\item{method}{The method that will be used by the \code{optim} function.}
+\item{method}{The method that will be used by the \code{optim}
+function.}
 
-\item{verbose}{Indicates if we need verbose output during the estimation.}
+\item{verbose}{Indicates if we need verbose output during the
+estimation.}
 }
 \value{
-Estimation results packaged as \code{BEKK} class instance.
+Estimation results packaged as \code{BEKK} class
+    instance. \describe{
+        \item{eps}{a data frame contaning all time series}
+        \item{length}{length of the series}
+        \item{order}{order of the BEKK model fitted}
+        \item{estimation.time}{time to complete the estimation process}
+        \item{total.time}{time to complete the whole routine within the mvBEKK.est process}
+        \item{estimation}{estimation object returned from the optimization process, using \code{optim}}
+        \item{aic}{the AIC value of the fitted model}
+        \item{est.params}{list of estimated parameter matrices}
+        \item{asy.se.coef}{list of asymptotic theory estimates of standard errors of estimated parameters}
+        \item{cor}{list of estimated conditional correlation series}
+        \item{sd}{list of estimated conditional standard deviation series}
+        \item{H.estimated}{list of estimated series of covariance matrices}
+        \item{eigenvalues}{estimated eigenvalues for sum of Kronecker products}
+        \item{uncond.cov.matrix}{estimated unconditional covariance matrix}
+        \item{residuals}{list of estimated series of residuals}
+    }
 }
 \description{
-Provide the MGARCH-BEKK estimation procedure.
+Provides the MGARCH-BEKK estimation procedure.
+}
+\details{
+\code{BEKK} estimates a \code{BEKK(p,q)} model, where \code{p}
+stands for the GARCH order, and \code{q} stands for the ARCH
+order.
 }
 \examples{
 ## Simulate series:
@@ -41,5 +68,18 @@ estimated <- BEKK(simulated)
 diagnoseBEKK(estimated)
 }
 
+}
+\references{
+{
+  Bauwens L., S. Laurent, J.V.K. Rombouts, Multivariate GARCH models: A survey, April, 2003
+
+  Bollerslev T., Modelling the coherence in short-run nominal exchange rate: A multivariate generalized ARCH approach, Review of Economics and Statistics, 498--505, 72, 1990
+
+  Engle R.F., K.F. Kroner, Multivariate simultaneous generalized ARCH, Econometric Theory, 122-150, 1995
+
+  Engle R.F., Dynamic conditional correlation: A new simple class of multivariate GARCH models, Journal of Business and Economic Statistics, 339--350, 20, 2002
+
+  Tse Y.K., A.K.C. Tsui, A multivariate generalized autoregressive conditional heteroscedasticity model with time-varying correlations, Journal of Business and Economic Statistics, 351-362, 20, 2002
+}
 }
 

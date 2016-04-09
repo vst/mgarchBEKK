@@ -1,18 +1,66 @@
-##' Provide the MGARCH-BEKK estimation procedure.
+##' Bivariate GJR Estimation
 ##'
-##' @param eps1    First time series.
-##' @param eps2    Second time series.
-##' @param order   mGJR(p, q, g) order
+##' Provides bivariate GJR (\code{mGJR(p,q,g)}) estimation procedure.
+##'
+##'
+##'
+##' @param eps1 First time series.
+##' @param eps2 Second time series.
+##' @param order mGJR(p, q, g) order a three element integer vector
+##'     giving the order of the model to be fitted. \code{order[2]}
+##'     refers to the ARCH order and \code{order[1]} to the GARCH
+##'     order and \code{order[3]} to the GJR order.
 ##' @param params Initial parameters for the \code{optim} function.
-##' @param fixed  Vector of parameters to be fixed.
-##' @param method The method that will be used by the \code{optim} function.
-##' @return Estimation results packaged as \code{mGJR} class instance.
+##' @param fixed A two dimensional vector that contains the user
+##'     specified fixed parameter values.
+##' @param method The method that will be used by the \code{optim}
+##'     function. See \code{?optim} for available options.
+##' @return Estimation results packaged as \code{mGJR} class instance. The values are defined as:
+##' \describe{
+##'    \item{eps1}{first time series}
+##'    \item{eps2}{second time series}
+##'    \item{length}{length of each series}
+##'    \item{order}{order of the mGJR model fitted}
+##'    \item{estimation.time}{time to complete the estimation process}
+##'    \item{total.time}{time to complete the whole routine within the mGJR.est process}
+##'    \item{estimation}{estimation object returned from the optimization process, using \code{optim}}
+##'    \item{aic}{the AIC value of the fitted model}
+##'    \item{est.params}{estimated parameter matrices}
+##'    \item{asy.se.coef}{asymptotic theory estimates of standard errors of estimated parameters}
+##'    \item{cor}{estimated conditional correlation series}
+##'    \item{sd1}{first estimated conditional standard deviation series}
+##'    \item{sd2}{second estimated conditional standard deviation series}
+##'    \item{H.estimated}{estimated series of covariance matrices}
+##'    \item{eigenvalues}{estimated eigenvalues for sum of Kronecker products}
+##'    \item{uncond.cov.matrix}{estimated unconditional covariance matrix}
+##'    \item{resid1}{first estimated series of residuals}
+##'    \item{resid2}{second estimated series of residuals}
+##' }
+##'
+##' @references{
+##'   Bauwens L., S. Laurent, J.V.K. Rombouts, Multivariate GARCH models: A survey, April, 2003
+##'
+##'   Bollerslev T., Modelling the coherence in short-run nominal exchange rate: A multivariate generalized ARCH approach, Review of Economics and Statistics, 498--505, 72, 1990
+##'
+##'   Engle R.F., K.F. Kroner, Multivariate simultaneous generalized ARCH, Econometric Theory, 122-150, 1995
+##'
+##'   Engle R.F., Dynamic conditional correlation: A new simple class of multivariate GARCH models, Journal of Business and Economic Statistics, 339--350, 20, 2002
+##'
+##'   Tse Y.K., A.K.C. Tsui, A multivariate generalized autoregressive conditional heteroscedasticity model with time-varying correlations, Journal of Business and Economic Statistics, 351-362, 20, 2002
+##' }
+##'
+##'
+##' @examples
+##' \dontrun{
+##'   sim = BEKK.sim(1000)
+##'   est = mGJR(sim$eps1, sim$eps2)
+##' }
 ##'
 ##' @import stats
 ##' @useDynLib mgarchBEKK
 ##' @export
 mGJR <- function(eps1, eps2, order=c(1,1,1), params=NULL, fixed=NULL, method="BFGS") {
-                                        # check the given time series
+    ## check the given time series
     if(length(eps1) != length(eps2))
     {
         stop("time series are different in length")

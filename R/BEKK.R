@@ -1,10 +1,44 @@
+##' Simulate BEKK processes
+##'
 ##' Provides a procedure to simulate BEKK processes.
+##'
+##' \code{simulateBEKK} simulates an N dimensional \code{BEKK(p,q)}
+##' model for the given length, order list, and initial parameter list
+##' where \code{N} is also specified by the user.
 ##'
 ##' @param series.count The number of series to be simulated.
 ##' @param T The length of series to be simulated.
-##' @param order BEKK(p, q) order
-##' @param params Initial parameters for simulation.
-##' @return Simulated series and auxiliary information packaged as a \code{simulateBEKK} class instance.
+##' @param order BEKK(p, q) order. An integer vector of length 2
+##'     giving the orders of the model to fit. \code{order[2]} refers
+##'     to the ARCH order and \code{order[1]} to the GARCH order.
+##' @param params A vector containing a sequence of parameter
+##'     matrices' values.
+##' @return Simulated series and auxiliary information packaged as a
+##'     \code{simulateBEKK} class instance. Values are:
+##'     \describe{
+##'         \item{length}{length of the series simulated}
+##'         \item{order}{order of the BEKK model}
+##'         \item{params}{a vector of the selected parameters}
+##'         \item{true.params}{list of parameters in matrix form}
+##'         \item{eigenvalues}{computed eigenvalues for sum of Kronecker products}
+##'         \item{uncond.cov.matrix}{unconditional covariance matrix of the process}
+##'         \item{white.noise}{white noise series used for simulating the process}
+##'         \item{eps}{a list of simulated series}
+##'         \item{cor}{list of series of conditional correlations}
+##'         \item{sd}{list of series of conditional standard deviations}
+##'     }
+##'
+##' @references{
+##'   Bauwens L., S. Laurent, J.V.K. Rombouts, Multivariate GARCH models: A survey, April, 2003
+##'
+##'   Bollerslev T., Modelling the coherence in short-run nominal exchange rate: A multivariate generalized ARCH approach, Review of Economics and Statistics, 498--505, 72, 1990
+##'
+##'   Engle R.F., K.F. Kroner, Multivariate simultaneous generalized ARCH, Econometric Theory, 122-150, 1995
+##'
+##'   Engle R.F., Dynamic conditional correlation: A new simple class of multivariate GARCH models, Journal of Business and Economic Statistics, 339--350, 20, 2002
+##'
+##'   Tse Y.K., A.K.C. Tsui, A multivariate generalized autoregressive conditional heteroscedasticity model with time-varying correlations, Journal of Business and Economic Statistics, 351-362, 20, 2002
+##' }
 ##'
 ##' @examples
 ##' ## Simulate series:
@@ -259,15 +293,55 @@ simulateBEKK <- function(series.count, T, order  = c(1, 1), params = NULL) {
 }
 
 
-##' Provide the MGARCH-BEKK estimation procedure.
+##' Estimate MGARCH-BEKK processes
 ##'
-##' @param eps   Data frame holding time series.
-##' @param order BEKK(p, q) order
+##' Provides the MGARCH-BEKK estimation procedure.
+##'
+##' \code{BEKK} estimates a \code{BEKK(p,q)} model, where \code{p}
+##' stands for the GARCH order, and \code{q} stands for the ARCH
+##' order.
+##'
+##' @param eps Data frame holding time series.
+##' @param order BEKK(p, q) order. An integer vector of length 2
+##'     giving the orders of the model to be fitted. \code{order[2]}
+##'     refers to the ARCH order and \code{order[1]} to the GARCH
+##'     order.
 ##' @param params Initial parameters for the \code{optim} function.
-##' @param fixed  Vector of parameters to be fixed.
-##' @param method The method that will be used by the \code{optim} function.
-##' @param verbose Indicates if we need verbose output during the estimation.
-##' @return Estimation results packaged as \code{BEKK} class instance.
+##' @param fixed Vector of parameters to be fixed.
+##' @param method The method that will be used by the \code{optim}
+##'     function.
+##' @param verbose Indicates if we need verbose output during the
+##'     estimation.
+##' @return Estimation results packaged as \code{BEKK} class
+##'     instance. \describe{
+##'         \item{eps}{a data frame contaning all time series}
+##'         \item{length}{length of the series}
+##'         \item{order}{order of the BEKK model fitted}
+##'         \item{estimation.time}{time to complete the estimation process}
+##'         \item{total.time}{time to complete the whole routine within the mvBEKK.est process}
+##'         \item{estimation}{estimation object returned from the optimization process, using \code{optim}}
+##'         \item{aic}{the AIC value of the fitted model}
+##'         \item{est.params}{list of estimated parameter matrices}
+##'         \item{asy.se.coef}{list of asymptotic theory estimates of standard errors of estimated parameters}
+##'         \item{cor}{list of estimated conditional correlation series}
+##'         \item{sd}{list of estimated conditional standard deviation series}
+##'         \item{H.estimated}{list of estimated series of covariance matrices}
+##'         \item{eigenvalues}{estimated eigenvalues for sum of Kronecker products}
+##'         \item{uncond.cov.matrix}{estimated unconditional covariance matrix}
+##'         \item{residuals}{list of estimated series of residuals}
+##'     }
+##'
+##' @references{
+##'   Bauwens L., S. Laurent, J.V.K. Rombouts, Multivariate GARCH models: A survey, April, 2003
+##'
+##'   Bollerslev T., Modelling the coherence in short-run nominal exchange rate: A multivariate generalized ARCH approach, Review of Economics and Statistics, 498--505, 72, 1990
+##'
+##'   Engle R.F., K.F. Kroner, Multivariate simultaneous generalized ARCH, Econometric Theory, 122-150, 1995
+##'
+##'   Engle R.F., Dynamic conditional correlation: A new simple class of multivariate GARCH models, Journal of Business and Economic Statistics, 339--350, 20, 2002
+##'
+##'   Tse Y.K., A.K.C. Tsui, A multivariate generalized autoregressive conditional heteroscedasticity model with time-varying correlations, Journal of Business and Economic Statistics, 351-362, 20, 2002
+##' }
 ##'
 ##' @examples
 ##' ## Simulate series:
@@ -745,6 +819,8 @@ BEKK <- function(eps, order  = c(1,1), params = NULL, fixed  = NULL, method = "B
 }
 
 
+##' Diagnose BEKK process estimation
+##'
 ##' Provides diagnostics for a BEKK process estimation.
 ##'
 ##' This procedure provides console output and browsable plots for a
@@ -753,7 +829,7 @@ BEKK <- function(eps, order  = c(1,1), params = NULL, fixed  = NULL, method = "B
 ##' the keyboard to see each plot one-by-one.
 ##'
 ##' @param estimation The return value of the \code{mvBEKK.est} function
-##' @return Nothing
+##' @return Nothing special
 ##'
 ##' @examples
 ##' ## Simulate series:

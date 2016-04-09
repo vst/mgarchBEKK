@@ -1,6 +1,6 @@
 Package: mgarchBEKK
 Title: Simulating, Estimating and Diagnosing MGARCH (BEKK and mGJR) Processes
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: c(
     person("Harald", "Schmidbauer", email="harald@hs-stat.com", role=c("aut")),
     person("Angi", "Roesch", email="angi@angi-stat.com", role=c("aut")),
