@@ -1,5 +1,13 @@
-VERS: 2016-03-02 ------- release/0.0.1
+VERS: 2016-04-09 ------- release/0.0.2
 
+    * 2016-04-09 c0edd02 [release] Version bumped to 0.0.2 (vst@vsthost.com)
+    * 2016-04-09 062f86b [docs] Functions documentation updated (vst@vsthost.com)
+    * 2016-03-02 9cce8e2 [chore] Development version is bumped to 0.0.1.9000 (vst@vsthost.com)
+
+VERS: 2016-03-02 b373e30 release/0.0.1 (vst@vsthost.com)
+
+    * 2016-03-02 dfee6e5 [release] Updated README for installation instructions (vst@vsthost.com)
+    * 2016-03-02 b9f8c48 [release] Updated change log and cran-comments (vst@vsthost.com)
     * 2016-03-02 0db57f4 [release] Fixed `no visible global function definition` on R-devel (vst@vsthost.com)
     * 2016-03-02 01f7022 [release] Fixed the email address of Angi (vst@vsthost.com)
     * 2016-03-01 97505b5 [release] Added CRAN comments (vst@vsthost.com)
