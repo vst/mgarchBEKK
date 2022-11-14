@@ -1,3 +1,11 @@
+# Changelog
+
+```txt
+VERS: 2022-11-14 ------- release/0.0.3
+
+    * Various chores
+    * Fix warnings reported by CRAN
+
 VERS: 2016-04-09 ------- release/0.0.2
 
     * 2016-04-09 c0edd02 [release] Version bumped to 0.0.2 (vst@vsthost.com)
@@ -17,3 +25,4 @@ VERS: 2016-03-02 b373e30 release/0.0.1 (vst@vsthost.com)
     * 2016-03-01 6ffa6aa [chore] README and DESCRIPTION updated before release (vst@vsthost.com)
     * 2016-03-01 cee7f4c [chore] Initial code commit (vst@vsthost.com)
     * 2016-03-01 b728eeb Initial commit (vst@vsthost.com)
+```
