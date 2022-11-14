@@ -1,2 +1,4 @@
 ^cran-comments.md
+^nix/
+^shell.nix
 ^tmp/
