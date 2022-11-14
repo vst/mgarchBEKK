@@ -54,6 +54,15 @@ For the `develop` branch which is the latest development version:
     ## Likewise, you can estimate an mGJR process:
     estimated2 <- mGJR(simulated[,1], simulated[,2])
 
+## Development
+
+This repository provides a Nix shell for easier access to a reproducible
+development environment:
+
+```sh
+nix-shell
+```
+
 ## LICENSE
 
 This R library is licensed under
