@@ -480,7 +480,7 @@ void loglikelihood(
 
 		/**
 		 * DEBUG
-		 * printf("det(H)² = %f\n", detcomp);
+		 * printf("det(H) = %f\n", detcomp);
 		 */
 
 		if(detcomp == 0)
