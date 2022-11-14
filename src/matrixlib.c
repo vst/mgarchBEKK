@@ -491,7 +491,7 @@ void m_inverse(MAT *feed, MAT *result)
 void sm_mlt(double scalar, MAT * B, MAT * OUT)
 {
 	unsigned int j, k, m, p;
-	double **B_v, mul;
+	double **B_v/*, mul */;
 
 	if(B == NULL)
 	{
@@ -519,7 +519,7 @@ void sm_mlt(double scalar, MAT * B, MAT * OUT)
 
 	for(j = 0; j < m; j++)
 	{
-		mul = 0.0;
+		/* mul = 0.0; */
 		for(k = 0; k < p; k++)
 		{
 			OUT->me[j][k] = scalar * B_v[j][k];

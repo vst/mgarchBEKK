@@ -60,7 +60,7 @@ void loglikelihood_GJR(
 	MAT *T0 = NULL;							/* 1x1 matrices */
 	MAT *T1 = NULL, *T7 =NULL;				/* 2x1 matrices */
 	MAT *T3 = NULL, *T4 = NULL, *T5 = NULL;	/* 2x2 matrices */
-	MAT *T6 = NULL, *T2 = NULL, *T8 = NULL;	/* 1x2 matrices */
+	MAT /* *T6 = NULL, */ *T2 = NULL, *T8 = NULL;	/* 1x2 matrices */
 
 	int count, counttemp, counttemp2;	/* will be used for loop counter */
 	double temp, buffer;				/* will be used for temporary calculations */
@@ -239,7 +239,7 @@ void loglikelihood_GJR(
 	T4 = m_get(2, 2);				/* make a 2 by 2 matrix */
 	T5 = m_get(2, 2);				/* make a 2 by 2 matrix */
 
-	T6 = m_get(1, 2);				/* make a 1 by 2 matrix */
+	/* T6 = m_get(1, 2); */				/* make a 1 by 2 matrix */
 	T7 = m_get(2, 1);				/* make a 2 by 1 matrix */
 	T8 = m_get(1, 2);				/* make a 1 by 2 matrix */
 
