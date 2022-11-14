@@ -4,8 +4,14 @@
 \alias{mGJR}
 \title{Bivariate GJR Estimation}
 \usage{
-mGJR(eps1, eps2, order = c(1, 1, 1), params = NULL, fixed = NULL,
-  method = "BFGS")
+mGJR(
+  eps1,
+  eps2,
+  order = c(1, 1, 1),
+  params = NULL,
+  fixed = NULL,
+  method = "BFGS"
+)
 }
 \arguments{
 \item{eps1}{First time series.}
@@ -71,4 +77,3 @@ Provides bivariate GJR (\code{mGJR(p,q,g)}) estimation procedure.
   Tse Y.K., A.K.C. Tsui, A multivariate generalized autoregressive conditional heteroscedasticity model with time-varying correlations, Journal of Business and Economic Statistics, 351-362, 20, 2002
 }
 }
-

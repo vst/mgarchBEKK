@@ -19,4 +19,4 @@ Suggests:
 License: GPL-3
 LazyData: true
 URL: https://github.com/vst/mgarchBEKK/
-RoxygenNote: 5.0.1
+RoxygenNote: 7.2.1

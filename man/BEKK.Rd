@@ -4,8 +4,14 @@
 \alias{BEKK}
 \title{Estimate MGARCH-BEKK processes}
 \usage{
-BEKK(eps, order = c(1, 1), params = NULL, fixed = NULL, method = "BFGS",
-  verbose = F)
+BEKK(
+  eps,
+  order = c(1, 1),
+  params = NULL,
+  fixed = NULL,
+  method = "BFGS",
+  verbose = F
+)
 }
 \arguments{
 \item{eps}{Data frame holding time series.}
@@ -82,4 +88,3 @@ diagnoseBEKK(estimated)
   Tse Y.K., A.K.C. Tsui, A multivariate generalized autoregressive conditional heteroscedasticity model with time-varying correlations, Journal of Business and Economic Statistics, 351-362, 20, 2002
 }
 }
-

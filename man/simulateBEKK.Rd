@@ -60,4 +60,3 @@ simulated = simulateBEKK(2, 1000, c(1,1))
   Tse Y.K., A.K.C. Tsui, A multivariate generalized autoregressive conditional heteroscedasticity model with time-varying correlations, Journal of Business and Economic Statistics, 351-362, 20, 2002
 }
 }
-

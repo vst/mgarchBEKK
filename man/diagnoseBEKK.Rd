@@ -37,4 +37,3 @@ diagnoseBEKK(estimated)
 }
 
 }
-
