@@ -10,11 +10,12 @@ let
   ## R environment:
   r = pkgs.rWrapper.override {
     packages = with pkgs.rPackages; [
-      tseries
-      mvtnorm
-      testthat
       devtools
+      mvtnorm
       roxygen2
+      spelling
+      testthat
+      tseries
     ];
   };
 in
@@ -25,6 +26,7 @@ pkgs.mkShell {
     pkgs.lolcat
 
     ## Development:
+    pkgs.texlive.combined.scheme-full
     r
   ];
 
