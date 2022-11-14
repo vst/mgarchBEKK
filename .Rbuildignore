@@ -2,3 +2,4 @@
 ^nix
 ^shell.nix
 ^tmp
+^CRAN-SUBMISSION$
