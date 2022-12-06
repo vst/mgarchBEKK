@@ -361,7 +361,7 @@ simulateBEKK <- function(series.count, T, order  = c(1, 1), params = NULL) {
 ##' @import mvtnorm
 ##' @import tseries
 ##' @import stats
-##' @useDynLib mgarchBEKK
+##' @useDynLib mgarchBEKK, .registration=TRUE
 ##' @export
 BEKK <- function(eps, order  = c(1,1), params = NULL, fixed  = NULL, method = "BFGS", verbose = F) {
     ## TODO: Check the import statements in the preamble.
