@@ -31,6 +31,9 @@ let
     packages = rDeps.pkg ++ rDeps.dev;
   };
 
+  ## Get aspell with dictionaries:
+  aspell = pkgs.aspellWithDicts (d: [ d.en ]);
+
   ## Setup development shell:
   shell = pkgs.mkShell
     {
@@ -38,6 +41,9 @@ let
         ## Fancy stuff:
         pkgs.figlet
         pkgs.lolcat
+
+        ## Spell checking related:
+        aspell
 
         ## TeX stuff:
         pkgs.texlive.combined.scheme-full
@@ -48,6 +54,8 @@ let
 
       shellHook = ''
         figlet -w 999 "mgarchBEKK DEV SHELL" | lolcat -S 42
+
+        export ASPELL_CONF="dict-dir ${aspell}/lib/aspell"
       '';
     };
 in
