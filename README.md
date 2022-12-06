@@ -57,24 +57,7 @@ development environment:
 nix-shell
 ```
 
-## Packaging
-
-### Update NEWS.md
-
-```R
-an <- autonewsmd::autonewsmd$new(repo_name = "mgarchBEKK", repo_path = ".")
-an$tag_pattern <- "^(\\d+\\.){2}\\d+(\\.\\d+)?$"
-an$generate()
-an$write(force = TRUE)
-```
-
-Then, unfortunately (as `autonewsmd` seems to be working with URL origin URLs):
-
-```sh
-sed -i "s/git@github.com:vst\/mgarchBEKK.git/https:\/\/github.com\/vst\/mgarchBEKK/g" NEWS.md
-```
-
-### Checks
+## Releasing
 
 Run following commands for checks:
 
@@ -85,6 +68,14 @@ devtools::check_win_devel(".")
 ## Note that rhub fails with "no suitable spell checker found", hence the env_vars:
 devtools::check_rhub(".", env_vars = c("_R_CHECK_CRAN_INCOMING_USE_ASPELL_" = "false"))
 ```
+
+Update NEWS.md:
+
+```sh
+git-chglog -o NEWS.md --next-tag <NEXT_VERSION>
+```
+
+Update `cran-commends.md`.
 
 ## LICENSE
 

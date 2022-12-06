@@ -18,7 +18,6 @@ let
 
     ## Dependencies for development:
     dev = [
-      autonewsmd
       devtools
       roxygen2
       spelling
@@ -41,6 +40,9 @@ let
         ## Fancy stuff:
         pkgs.figlet
         pkgs.lolcat
+
+        ## Release related:
+        pkgs.git-chglog
 
         ## Spell checking related:
         aspell
