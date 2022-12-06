@@ -59,23 +59,25 @@ nix-shell
 
 ## Releasing
 
-Run following commands for checks:
+- Bump the version number in `DESCRIPTION` file.
+- Update `NEWS.md`
 
-```R
-devtools::check(".", incoming = TRUE)
-devtools::check_win_release(".")
-devtools::check_win_devel(".")
-## Note that rhub fails with "no suitable spell checker found", hence the env_vars:
-devtools::check_rhub(".", env_vars = c("_R_CHECK_CRAN_INCOMING_USE_ASPELL_" = "false"))
-```
+    ```sh
+    git-chglog -o NEWS.md --next-tag <NEXT_VERSION>
+    ```
 
-Update NEWS.md:
+- Check the Package:
 
-```sh
-git-chglog -o NEWS.md --next-tag <NEXT_VERSION>
-```
+    ```R
+    devtools::check(".", incoming = TRUE)
+    devtools::check_win_release(".")
+    devtools::check_win_devel(".")
+    ## Note that rhub fails with "no suitable spell checker found", hence the env_vars:
+    devtools::check_rhub(".", env_vars = c("_R_CHECK_CRAN_INCOMING_USE_ASPELL_" = "false"))
+    ```
 
-Update `cran-commends.md`.
+- Update `cran-comments.md` with necessary comments to CRAN team.
+- Commit changes and tag release commit.
 
 ## LICENSE
 
