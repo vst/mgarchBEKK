@@ -57,7 +57,7 @@
 ##' }
 ##'
 ##' @import stats
-##' @useDynLib mgarchBEKK
+##' @useDynLib mgarchBEKK, .registration=TRUE
 ##' @export
 mGJR <- function(eps1, eps2, order=c(1,1,1), params=NULL, fixed=NULL, method="BFGS") {
     ## check the given time series

@@ -1,28 +1,42 @@
-# Changelog
+# mgarchBEKK NEWS
 
-```txt
-VERS: 2022-11-14 ------- release/0.0.3
+## Unreleased (2022-12-06)
 
-    * Various chores
-    * Fix warnings reported by CRAN
+#### Bug fixes
 
-VERS: 2016-04-09 ------- release/0.0.2
+-   use autonewsmd to auto-generate NEWS.md file
+    ([ac9d8a1](https://github.com/vst/mgarchBEKK/tree/ac9d8a1a89369134915d2448f871377d729a2ee5))
+-   register native routines
+    ([1d119a4](https://github.com/vst/mgarchBEKK/tree/1d119a469657f6488dff174da577dfbc46864c48))
+-   attend roxygen2 warning
+    ([7d0fc8a](https://github.com/vst/mgarchBEKK/tree/7d0fc8ae71e0ff27d958265a712cb72ce0f10db5))
 
-    * 2016-04-09 c0edd02 [release] Version bumped to 0.0.2 (vst@vsthost.com)
-    * 2016-04-09 062f86b [docs] Functions documentation updated (vst@vsthost.com)
-    * 2016-03-02 9cce8e2 [chore] Development version is bumped to 0.0.1.9000 (vst@vsthost.com)
+#### Other changes
 
-VERS: 2016-03-02 b373e30 release/0.0.1 (vst@vsthost.com)
+-   bump development version to 0.0.3.9000
+    ([979d82a](https://github.com/vst/mgarchBEKK/tree/979d82a3f782d409b7c180579be6aefdc013a615))
 
-    * 2016-03-02 dfee6e5 [release] Updated README for installation instructions (vst@vsthost.com)
-    * 2016-03-02 b9f8c48 [release] Updated change log and cran-comments (vst@vsthost.com)
-    * 2016-03-02 0db57f4 [release] Fixed `no visible global function definition` on R-devel (vst@vsthost.com)
-    * 2016-03-02 01f7022 [release] Fixed the email address of Angi (vst@vsthost.com)
-    * 2016-03-01 97505b5 [release] Added CRAN comments (vst@vsthost.com)
-    * 2016-03-01 375f70c [release] LICENSE renamed to COPYING (vst@vsthost.com)
-    * 2016-03-01 9a798b1 [release] Updated change log (vst@vsthost.com)
-    * 2016-03-01 25aa000 [release] Version bumped to 0.0.1 (vst@vsthost.com)
-    * 2016-03-01 6ffa6aa [chore] README and DESCRIPTION updated before release (vst@vsthost.com)
-    * 2016-03-01 cee7f4c [chore] Initial code commit (vst@vsthost.com)
-    * 2016-03-01 b728eeb Initial commit (vst@vsthost.com)
-```
+Full set of changes:
+[`0.0.3...ac9d8a1`](https://github.com/vst/mgarchBEKK/compare/0.0.3...ac9d8a1)
+
+## 0.0.3 (2022-11-14)
+
+#### Bug fixes
+
+-   attend clang compiler warnings
+    ([b993dfb](https://github.com/vst/mgarchBEKK/tree/b993dfbc648674af372975078f35a4ea7d55bd22))
+-   remove invalid UTF-8 characters from C code
+    ([1e21f1b](https://github.com/vst/mgarchBEKK/tree/1e21f1bcb8e7160451edbca2011a70cf9792057e))
+
+Full set of changes:
+[`0.0.2...0.0.3`](https://github.com/vst/mgarchBEKK/compare/0.0.2...0.0.3)
+
+## 0.0.2 (2016-04-09)
+
+Full set of changes:
+[`0.0.1...0.0.2`](https://github.com/vst/mgarchBEKK/compare/0.0.1...0.0.2)
+
+## 0.0.1 (2016-03-02)
+
+Full set of changes:
+[`b728eeb...0.0.1`](https://github.com/vst/mgarchBEKK/compare/b728eeb...0.0.1)
