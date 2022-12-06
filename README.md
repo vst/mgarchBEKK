@@ -71,7 +71,19 @@ an$write(force = TRUE)
 Then, unfortunately (as `autonewsmd` seems to be working with URL origin URLs):
 
 ```sh
-sed -i "s/git@github.com:vst\/mgarchBEKK.git/https://github.com/vst/mgarchBEKK/g" NEWS.md
+sed -i "s/git@github.com:vst\/mgarchBEKK.git/https:\/\/github.com\/vst\/mgarchBEKK/g" NEWS.md
+```
+
+### Checks
+
+Run following commands for checks:
+
+```R
+devtools::check(".", incoming = TRUE)
+devtools::check_win_release(".")
+devtools::check_win_devel(".")
+## Note that rhub fails with "no suitable spell checker found", hence the env_vars:
+devtools::check_rhub(".", env_vars = c("_R_CHECK_CRAN_INCOMING_USE_ASPELL_" = "false"))
 ```
 
 ## LICENSE
