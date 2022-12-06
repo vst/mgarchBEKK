@@ -1,6 +1,6 @@
 ^.chglog
+^CRAN-SUBMISSION$
 ^cran-comments.md
-^CRAN-SUBMISSION
 ^nix
 ^shell.nix
 ^tmp
