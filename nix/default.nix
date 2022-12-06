@@ -18,6 +18,7 @@ let
 
     ## Dependencies for development:
     dev = [
+      autonewsmd
       devtools
       roxygen2
       spelling
